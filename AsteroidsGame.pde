@@ -1,31 +1,40 @@
 Spaceship ship;
-Spaceship2 ship2;
 Star [] sky;
+Asteroid [] roidfield;
 public void setup() 
 {
 	size(500,500);
 	frameRate(60);
 	ship = new Spaceship();
-	ship2 = new Spaceship2();
 
 	sky = new Star[100];
-
 	for(int i = 0; i < sky.length; i++)
 	{
 	    sky[i] = new Star();
 	}
+
+	roidfield = new Asteroid[20];
+	for(int i = 0; i < roidfield.length; i++)
+	{
+	    roidfield[i] = new Asteroid();
+	}
+
 }
 public void draw() 
 {
 	background(0);
+	ship.show();
+	ship.move();
 	for(int i = 0; i < sky.length; i++)
     {
       sky[i].show();
     }
-	ship.show();
-	ship.move();
-	ship2.show();
-	ship2.move();
+    for(int i = 0; i < roidfield.length; i++)
+    {
+      roidfield[i].show();
+      roidfield[i].move();
+    }
+
 }
 public void keyPressed()
 {
@@ -54,30 +63,5 @@ public void keyPressed()
     	ship.setDirectionY(0);
     	ship.setPointDirection((int)(Math.random()*360));
     }
-    //Ship2 controls
-    if (key == 'i')
-	{
-		ship2.accelerate(.2);
-	}
-	if (key == 'j')
-	{
-		ship2.turn(-10);
-	}
-	if (key == 'k')
-	{
-		ship2.accelerate(-.5);
-	}
-	if (key == 'l')
-	{
-		ship2.turn(10);
-	}
-	if (key == 'o')
-	{
-		ship2.setX((int)(Math.random()*500));
-    	ship2.setY((int)(Math.random()*500));
-    	ship2.setDirectionX(0);
-    	ship2.setDirectionY(0);
-    	ship2.setPointDirection((int)(Math.random()*360));
-	}
 }
 
