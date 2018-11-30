@@ -1,10 +1,9 @@
 Spaceship ship;
 Star [] sky;
-Asteroid [] roidfield;
+ArrayList<Asteroid> ast = new ArrayList<Asteroid>();
 public void setup() 
 {
 	size(500,500);
-	frameRate(60);
 	ship = new Spaceship();
 
 	sky = new Star[100];
@@ -13,11 +12,9 @@ public void setup()
 	    sky[i] = new Star();
 	}
 
-	roidfield = new Asteroid[20];
-	for(int i = 0; i < roidfield.length; i++)
-	{
-	    roidfield[i] = new Asteroid();
-	}
+	for(int i = 0; i < 20; i++){
+      ast.add(new Asteroid());
+    }
 
 }
 public void draw() 
@@ -25,19 +22,25 @@ public void draw()
 	background(0);
 	ship.show();
 	ship.move();
+
 	for(int i = 0; i < sky.length; i++)
     {
       sky[i].show();
     }
-    for(int i = 0; i < roidfield.length; i++)
-    {
-      roidfield[i].show();
-      roidfield[i].move();
-    }
 
+    for(int i = 0; i < ast.size(); i++)
+    {
+
+    ast.get(i).move();
+    ast.get(i).show();
+    
+    	if(dist(ship.getX(), ship.getY(), ast.get(i).getX(), ast.get(i).getY()) < 20){
+      		ast.remove(i);
+    	}
+	}
 }
-public void keyPressed()
-{
+
+public void keyPressed() {
 	//Ship controls
 	if (key == 'w')
 	{
@@ -49,7 +52,7 @@ public void keyPressed()
 	}
 	if (key == 's')
 	{
-		ship.accelerate(-.5);
+		ship.accelerate(-.2);
 	}
 	if (key == 'd')
 	{
