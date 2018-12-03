@@ -31,8 +31,8 @@ public void draw()
     for(int i = 0; i < ast.size(); i++)
     {
 
-    ast.get(i).move();
-    ast.get(i).show();
+    	ast.get(i).move();
+    	ast.get(i).show();
     
     	if(dist(ship.getX(), ship.getY(), ast.get(i).getX(), ast.get(i).getY()) < 20){
       		ast.remove(i);
@@ -44,19 +44,19 @@ public void keyPressed() {
 	//Ship controls
 	if (key == 'w')
 	{
-		ship.accelerate(.2);
+		ship.accelerate(.5);
 	}
 	if (key == 'a')
 	{
-		ship.turn(-10);
+		ship.turn(-20);
 	}
 	if (key == 's')
 	{
-		ship.accelerate(-.2);
+		ship.accelerate(-.5);
 	}
 	if (key == 'd')
 	{
-		ship.turn(10);
+		ship.turn(20);
 	}
 	if (key == 'e')
 	{
