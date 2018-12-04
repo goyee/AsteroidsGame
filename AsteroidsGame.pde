@@ -19,7 +19,7 @@ public void setup()
 public void draw() 
 {
 	background(0);
-	
+
 	ship.show();
 	ship.move();
 
@@ -33,11 +33,12 @@ public void draw()
 
     	ast.get(i).move();
     	ast.get(i).show();
-    
-    	if(dist(ship.getX(), ship.getY(), ast.get(i).getX(), ast.get(i).getY()) < 20){
+	}
+	for(int i = 0; i < ast.size(); i++){
+		if(dist(ship.getX(), ship.getY(), ast.get(i).getX(), ast.get(i).getY()) < 20){
       		ast.remove(i);
     	}
-	}
+    }
 }
 
 public void keyPressed() {
