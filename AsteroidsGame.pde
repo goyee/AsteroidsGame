@@ -5,7 +5,6 @@ public void setup()
 {
 	size(500,500);
 	ship = new Spaceship();
-
 	sky = new Star[100];
 	for(int i = 0; i < sky.length; i++)
 	{
@@ -20,6 +19,7 @@ public void setup()
 public void draw() 
 {
 	background(0);
+	
 	ship.show();
 	ship.move();
 
