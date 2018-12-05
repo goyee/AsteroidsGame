@@ -4,23 +4,23 @@ class Asteroid extends Floater
 
 	public void setX(int x){myCenterX = x;}
 
-	public int getX(){return(int)myCenterX;}
+	public int getX(){return (int)myCenterX;}
 
 	public void setY(int y){myCenterY = y;}
 		 
-	public int getY(){return(int)myCenterY;}
+	public int getY(){return (int)myCenterY;}
 		   
 	public void setDirectionX(double x){myDirectionX = x;} 
 		
-	public double getDirectionX(){return(double)myDirectionX;}   
+	public double getDirectionX(){return (double)myDirectionX;}   
 		
 	public void setDirectionY(double y){myDirectionY = y;}
 		  
-	public double getDirectionY(){return(double)myDirectionY;}
+	public double getDirectionY(){return (double)myDirectionY;}
 		
 	public void setPointDirection(int degrees){myPointDirection = degrees;}
 		
-	public double getPointDirection(){return(int)myPointDirection;}
+	public double getPointDirection(){return (int)myPointDirection;}
 
 	public Asteroid()
 	{	
@@ -52,10 +52,9 @@ class Asteroid extends Floater
 	}
 	public void move()
     {
-      turn(aRotate);
-      super.move();
-      myCenterX += Math.cos(aRotate);
-      myCenterY += Math.sin(aRotate);
+    	turn(aRotate);
+     	super.move();
+     	
     }
 
 }
