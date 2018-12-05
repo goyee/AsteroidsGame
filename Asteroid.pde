@@ -51,11 +51,11 @@ class Asteroid extends Floater
 		aRotate = (int)((Math.random()*9)-4);
 	}
 	public void move()
-    {
-      turn(aRotate);
-      super.move();
-      myCenterX += Math.cos(aRotate);
-      myCenterY += Math.sin(aRotate);
-    }
+    	{
+      		turn(aRotate);
+      		super.move();
+     		myCenterX += Math.cos(aRotate);
+     		myCenterY += Math.sin(aRotate);
+   	}
 
 }
