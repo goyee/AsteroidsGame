@@ -1,6 +1,7 @@
 Spaceship ship;
 Star [] sky;
 ArrayList<Asteroid> ast = new ArrayList<Asteroid>();
+
 public void setup() 
 {
 	size(500,500);
@@ -19,7 +20,6 @@ public void setup()
 public void draw() 
 {
 	background(0);
-
 	ship.show();
 	ship.move();
 
@@ -30,7 +30,6 @@ public void draw()
 
     for(int i = 0; i < ast.size(); i++)
     {
-
     	ast.get(i).move();
     	ast.get(i).show();
 	}
