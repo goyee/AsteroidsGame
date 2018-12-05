@@ -53,8 +53,6 @@ class Asteroid extends Floater
 	public void move()
     {
     	turn(aRotate);
-     	super.move();
-     	
+     	super.move();	
     }
-
 }
