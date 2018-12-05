@@ -54,8 +54,6 @@ class Asteroid extends Floater
     	{
       		turn(aRotate);
       		super.move();
-     		myCenterX += Math.cos(aRotate);
-     		myCenterY += Math.sin(aRotate);
    	}
 
 }
