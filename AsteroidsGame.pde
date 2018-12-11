@@ -1,6 +1,7 @@
 Spaceship ship;
 Star [] sky;
-ArrayList<Asteroid> ast = new ArrayList<Asteroid>();
+ArrayList <Asteroid> ast = new ArrayList<Asteroid>();
+ArrayList <Bullet> bob = new ArrayList <Bullet>();
 
 public void setup() 
 {
@@ -13,8 +14,8 @@ public void setup()
 	}
 
 	for(int i = 0; i < 20; i++){
-      		ast.add(new Asteroid());
-    	}
+      	ast.add(new Asteroid());
+    }
 
 }
 public void draw() 
@@ -24,20 +25,32 @@ public void draw()
 	ship.move();
 
 	for(int i = 0; i < sky.length; i++)
-    	{
-      		sky[i].show();
-    	}
+    {
+      	sky[i].show();
+    }
 
-    	for(int i = 0; i < ast.size(); i++)
-    	{
-    		ast.get(i).move();
-    		ast.get(i).show();
+    for(int i = 0; i < ast.size(); i++)
+    {
+    	ast.get(i).move();
+    	ast.get(i).show();
 	}
+
 	for(int i = 0; i < ast.size(); i++){
 		if(dist(ship.getX(), ship.getY(), ast.get(i).getX(), ast.get(i).getY()) < 20){
-      			ast.remove(i);
-    		}
+      		ast.remove(i);
     	}
+    }
+    for (int i = 0; i < bob.size(); i++){
+    	bob.get(i).show();
+    	bob.get(i).move();
+  	}
+ 	for (int i = 0; i < bob.size(); i++){
+    	for (int j = 0; j < ast.size(); j++){
+      		if(dist(bob.get(i).getX(), bob.get(i).getY(), ast.get(j).getX(), ast.get(j).getY()) < 20){
+        		ast.remove(j);
+      		}
+    	}
+	}
 }
 
 public void keyPressed() {
@@ -58,13 +71,17 @@ public void keyPressed() {
 	{
 		ship.turn(20);
 	}
+	if (key == ' ')
+  	{
+   		bob.add(new Bullet(ship));
+  	}
 	if (key == 'e')
 	{
 		ship.setX((int)(Math.random()*500));
-    		ship.setY((int)(Math.random()*500));
-    		ship.setDirectionX(0);
-    		ship.setDirectionY(0);
-    		ship.setPointDirection((int)(Math.random()*360));
-    	}
+    	ship.setY((int)(Math.random()*500));
+    	ship.setDirectionX(0);
+    	ship.setDirectionY(0);
+    	ship.setPointDirection((int)(Math.random()*360));
+    }
 }
 
